@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const API = "https://confidantai-saas.onrender.com/api";
 
 export const loginUser = (data) => axios.post(`${API}/auth/login`, data);
