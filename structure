@@ -1,0 +1,28 @@
+confidantai-saas/
+│
+├── client/
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── src/
+│       ├── main.jsx
+│       ├── App.jsx
+│       ├── api.js
+│       ├── context/AuthContext.jsx
+│       └── pages/
+│           ├── Login.jsx
+│           ├── Register.jsx
+│           └── Dashboard.jsx
+│
+├── server/
+│   ├── package.json
+│   ├── server.js
+│   ├── .env
+│   ├── middleware/auth.js
+│   ├── models/User.js
+│   ├── models/Chat.js
+│   └── routes/
+│       ├── auth.js
+│       └── chat.js
+│
+└── .gitignore
