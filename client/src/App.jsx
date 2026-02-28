@@ -1,24 +1,29 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const [response, setResponse] = useState("");
-
-  const callBackend = async () => {
-    const res = await fetch(
-      import.meta.env.VITE_API_URL + "/api/test"
-    );
-    const data = await res.json();
-    setResponse(data.message);
-  };
-
   return (
-    <div style={{ padding: "40px", fontFamily: "sans-serif" }}>
-      <h1>🚀 ConfidantAI</h1>
-      <button onClick={callBackend}>
-        Test Backend Connection
-      </button>
-      <p>{response}</p>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
